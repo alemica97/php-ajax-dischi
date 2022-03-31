@@ -85,37 +85,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <title>PHP Dischi</title>
 </head>
 <body>
-    <main>
 
-        <div class="container">
-            <?php
-            // Ciclo il secondo elemento dell'array 'array_dishi' 
-                for($i = 0; $i < count($array_dischi['response']); $i++){
-                    // echo $array_dischi['response'][$i]['poster'];
-                    ?>
-                    <div class="player-wrapper">
-                        <div class="player-card">
-                            <figure class="card-image">
-                                <img src="<?php echo $array_dischi['response'][$i]['poster']; ?>">
-                            </figure>
-                            <div class="card-title">
-                                <h3><?php echo $array_dischi['response'][$i]['title']; ?></h3>
-                            </div>
-                            <div class="card-info">
-                                <span><?php echo $array_dischi['response'][$i]['author']; ?></span>
-                                <span><?php echo $array_dischi['response'][$i]['year']; ?></span>
-                            </div>
+    <div id="app">
+        <main>
+
+            <div class="container">
+                <div class="player-wrapper"
+                v-for="(disco, i) in arrayDischi">
+                    <div class="player-card">
+                        <figure class="card-image">
+                            <img :src="disco.poster">
+                        </figure>
+                        <div class="card-title">
+                            <h3>{{ disco.title }}</h3>
+                        </div>
+                        <div class="card-info">
+                            <span>{{ disco.author }}</span>
+                            <span>{{ disco.year }}</span>
                         </div>
                     </div>
-                    <?php       
-                }
-            ?>
-        </div>
-        
-    </main>
+                </div>
+            </div>
+
+        </main>
+
+    </div>
+    
+    <script src="JS/app.js"></script>
 </body>
 </html>
