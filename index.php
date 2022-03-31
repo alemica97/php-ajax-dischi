@@ -72,9 +72,9 @@
                 "author" => "Michael Jacjson",
                 "genre" => "Pop",
                 "year" => "1987"
-            ]
-        ]
-    ]
+            ],
+        ],
+    ];
 
 ?>
 
@@ -88,6 +88,31 @@
     <title>PHP Dischi</title>
 </head>
 <body>
-    
+    <main>
+
+        <div class="container">
+            <?php
+            // Ciclo il secondo elemento dell'array 'array_dishi' 
+                for($i = 0; $i < count($array_dischi['response']); $i++){
+                    // echo $array_dischi['response'][$i]['poster'];
+                    ?>
+                    <div class="player-card">
+                        <figure class="card-image">
+                            <img src="<?php echo $array_dischi['response'][$i]['poster']; ?>">
+                        </figure>
+                        <div class="card-title">
+                            <h3><?php echo $array_dischi['response'][$i]['title']; ?></h3>
+                        </div>
+                        <div class="card-info">
+                            <span><?php echo $array_dischi['response'][$i]['author']; ?></span>
+                            <span><?php echo $array_dischi['response'][$i]['year']; ?></span>
+                        </div>
+                    </div>
+                    <?php       
+                }
+            ?>
+        </div>
+        
+    </main>
 </body>
 </html>
