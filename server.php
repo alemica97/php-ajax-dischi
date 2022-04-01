@@ -71,11 +71,20 @@
                     "author" => "Michael Jacjson",
                     "genre" => "Pop",
                     "year" => "1987"
-                ],
-            ],
+                ]
+            ]
         ];
 
 
+    $nuovo_array = $array_dischi['response'];
+
+    if( isset($_GET['genre']) && $_GET['genre'] != ''){
+        $nuovo_array = array_filter($nuovo_array, function($el) {
+            return $el['genre'] == $_GET['genre'];
+        });
+    }
+
     header('Content-Type: application/json');
     
-    echo json_encode ($array_dischi);
+    echo json_encode ($nuovo_array);
+

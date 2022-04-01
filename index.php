@@ -93,8 +93,20 @@
 
     <div id="app">
         <main>
-
+            <div class="select-wrapper">
+                <select 
+                name="genre" id="" v-model="selectedGenre"
+                @change="fetchData()">
+                    <option value="">Scegli il tuo genere preferito</option>
+                    <option value="Rock">rock</option>
+                    <option value="Pop">pop</option>
+                    <option value="Metal">metal</option>
+                    <option value="Jazz">jazz</option>
+                </select>
+                <span class="custom-arrow"></span>
+            </div> 
             <div class="container">
+
                 <div class="player-wrapper"
                 v-for="(disco, i) in arrayDischi">
                     <div class="player-card">
